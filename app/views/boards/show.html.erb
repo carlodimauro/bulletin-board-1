@@ -4,7 +4,7 @@
       <%= @the_board.name %>
     </h1>
 
-    <div>
+    <!--<div>
       <div>
         <a href="/boards">
           Go back
@@ -12,60 +12,40 @@
       </div>
 
       <div>
-        <a href="/delete_board/<%= @the_board.id %>">
+        <a href="/delete_board/<%#= @the_board.id %>">
           Delete board
         </a>
       </div>
-    </div>
+    </div>-->
 
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_board.name %>
-      </dd>
 
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_board.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_board.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
 </div>
 
 <hr>
 
+<h2>Add a new post</h2>
 
+<form action="/insert_post", method="post">
 <div>
-  <div>
-    <h2>
-      Edit board
-    </h2>
-
-    <form action="/modify_board/<%= @the_board.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_board.name %>">
-      </div>
-
-      <button>
-        Update board
-      </button>
-    </form>
-  </div>
+  <label for="titleinput">Title</label>
+  <input type="text", id="titleinput", name="query_title">
 </div>
+<div>
+  <label for="bodyinput">Body</label>
+  <textarea id="bodyinput", name="query_body", cols="30", rows="10"></textarea>
+</div>
+<div>
+  <label for="expiresinput">Expires on</label>
+  <input type="date", id="expiresinput", name="query_expires_on">
+</div>
+<div>
+  <label for="boardinput">Board ID</label>
+  <input type="text", id="boardinput", name="query_board_id", Value="<%=@the_board.id%>">
+</div>
+<button>Add Post</button>
+</form>
 
 <hr>
+
+
