@@ -39,11 +39,10 @@
   <label for="expiresinput">Expires on</label>
   <input type="date", id="expiresinput", name="query_expires_on">
 </div>
-<div>
-  <label for="boardinput">Board ID</label>
-  <input type="text", id="boardinput", name="query_board_id", Value="<%=@the_board.id%>">
-</div>
-<button>Add Post</button>
+
+  <input type="hidden", id="boardinput", name="query_board_id", Value="<%=@the_board.id%>">
+
+<button>Add post</button>
 </form>
 
 <hr>
